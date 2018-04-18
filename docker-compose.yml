@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  users-open-ldap:
+    image: dinkel/openldap
+    container_name: users-open-ldap
+    ports:
+      - "389:389"
+      - "9615:9615"
+    environment:
+      - SLAPD_PASSWORD=mysecretpassword
+      - SLAPD_DOMAIN=users-ldap.mjshika.xyz
