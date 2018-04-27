@@ -4,9 +4,20 @@ services:
   users-open-ldap:
     image: dinkel/openldap
     container_name: users-open-ldap
+    volumes:
+      - users-open-ldap-volume-data:/var/lib/ldap
+      - users-open-ldap-volume-config:/etc/ldap
     ports:
       - "389:389"
       - "9615:9615"
     environment:
       - SLAPD_PASSWORD=mysecretpassword
       - SLAPD_DOMAIN=users-ldap.mjshika.xyz
+      - SLAPD_ORGANIZATION="University of Pretoria"
+      - SLAPD_CONFIG_PASSWORD=mysecretpassword
+      - SLAPD_ADDITIONAL_SCHEMAS=ppolicy
+      - SLAPD_ADDITIONAL_MODULES=ppolicy
+
+volumes:
+  users-open-ldap-volume-config:
+  users-open-ldap-volume-data:
