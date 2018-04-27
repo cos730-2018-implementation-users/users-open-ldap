@@ -10,7 +10,7 @@ services:
       - ./ldap-config:/etc/ldap.dist/prepopulate
     ports:
       - "389:389"
-      - "9615:9615"
+      - "8089:9615"
     environment:
       - SLAPD_PASSWORD=mysecretpassword
       - SLAPD_DOMAIN=users-ldap.mjshika.xyz
