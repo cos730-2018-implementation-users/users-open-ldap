@@ -18,6 +18,13 @@ services:
       - SLAPD_CONFIG_PASSWORD=mysecretpassword
       - SLAPD_ADDITIONAL_SCHEMAS=ppolicy
       - SLAPD_ADDITIONAL_MODULES=ppolicy
+  phpldapadmin:
+    image: osixia/phpldapadmin:0.7.1
+    container_name: phpldapadmin
+    ports:
+      - "6443:443"
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=users-ldap.mjshika.xyz
 
 volumes:
   users-open-ldap-volume-config:
