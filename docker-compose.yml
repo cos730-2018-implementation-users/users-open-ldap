@@ -7,6 +7,7 @@ services:
     volumes:
       - users-open-ldap-volume-data:/var/lib/ldap
       - users-open-ldap-volume-config:/etc/ldap
+      - ./ldap-config:/etc/ldap.dist/prepopulate
     ports:
       - "389:389"
       - "9615:9615"
